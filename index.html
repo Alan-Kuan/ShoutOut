@@ -14,21 +14,27 @@
 
         <div id="panel">
             <form id="msg-form">
-                <input class="text-field" type="text" />
-                <button class="btn submit-btn" type="submit">
+                <div class="text-field-container">
+                    <input class="text-field" type="text" />
+                    <button id="delete-btn" class="btn" type="button">
+                        <i class="fa-solid fa-delete-left"></i>
+                    </button>
+                </div>
+
+                <button class="btn panel-btn submit-btn" type="submit">
                     <i class="fa-solid fa-circle-right"></i>
                 </button>
             </form>
 
-            <button id="settings" class="btn">
+            <button id="settings" class="btn panel-btn">
                 <i class="fa-solid fa-gear"></i>
             </button>
-            <button id="close" class="btn">
+            <button id="close" class="btn panel-btn">
                 <i class="fa-solid fa-xmark"></i>
             </button>
         </div>
 
-        <button id="show-panel" class="btn">
+        <button id="show-panel" class="btn panel-btn">
             <i class="fa-solid fa-arrow-up"></i>
         </button>
 

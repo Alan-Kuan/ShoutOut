@@ -1,10 +1,3 @@
-document.querySelector('#msg-form').addEventListener('submit', (event) => { 
-    event.preventDefault();
-    let msg_text = document.querySelector('#msg-form .text-field').value;
-    setMsg(msg_text);
-    playMsg();
-});
-
 function setMsg(msg_text) {
     document.querySelector('#stage .msg').textContent = msg_text;
 }
@@ -22,18 +15,33 @@ function playMsg() {
 }
 
 /*
+    Input
+*/
+
+document.querySelector('#msg-form').addEventListener('submit', e => { 
+    e.preventDefault();
+    let msg_text = document.querySelector('#msg-form .text-field').value;
+    setMsg(msg_text);
+    playMsg();
+});
+
+document.querySelector('#delete-btn').addEventListener('click', () => {
+    document.querySelector('#msg-form .text-field').value = '';
+});
+
+/*
     Maximize and unmaximize the stage.
 */
 
-document.querySelector('#close').addEventListener('click', (event) => {  
+document.querySelector('#close').addEventListener('click', () => {  
     maximizeStage();
 });
 
-document.querySelector('#show-panel').addEventListener('click', (event) => { 
+document.querySelector('#show-panel').addEventListener('click', () => { 
     unmaximizeStage();
 });
 
-document.querySelector('#stage').addEventListener('touchend', (evnet) => { 
+document.querySelector('#stage').addEventListener('touchend', () => { 
     unmaximizeStage();
 });
 

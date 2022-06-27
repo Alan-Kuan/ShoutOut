@@ -48,15 +48,34 @@ body {
 }
 
 #msg-form {
+    display: flex;
     width: 90%;
 }
-#msg-form .text-field {
+#msg-form .text-field-container {
+    position: relative;
+    width: 60%;
+}
+#msg-form .text-field-container .text-field {
+    width: 100%;
+    height: 100%;
     padding: 0 1rem;
+    box-sizing: border-box;
     border: none;
     border-radius: 16px;
     background-color: var(--text-field-bg);
     color: white;
     font-size: 2.4rem;
+}
+#msg-form .text-field-container #delete-btn {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    transition: 0.3s;
+}
+#msg-form .text-field-container #delete-btn:hover {
+    color: #fc3d3d;
 }
 #msg-form .submit-btn {
     margin-left: 1rem;
@@ -74,18 +93,20 @@ body {
 }
 
 .btn {
-    width: 4rem;
-    height: 4rem;
     border: none;
-    border-radius: 50%;
-    margin-left: 1.5rem;
     background-color: transparent;
     color: white;
-    font-size: 2.5rem;
     cursor: pointer;
+}
+.panel-btn {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    margin-left: 1.5rem;
+    font-size: 2.5rem;
     transition: 0.3s;
 }
-.btn:hover {
+.panel-btn:hover {
     color: var(--panel-bg);
     background-color: lime;
 }
