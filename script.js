@@ -26,7 +26,9 @@ document.querySelector('#msg-form').addEventListener('submit', e => {
 });
 
 document.querySelector('#delete-btn').addEventListener('click', () => {
-    document.querySelector('#msg-form .text-field').value = '';
+    let field = document.querySelector('#msg-form .text-field');
+    field.value = '';
+    field.focus();
 });
 
 /*
