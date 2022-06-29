@@ -1,0 +1,14 @@
+#stage {
+    height: var(--stage-height);
+    overflow: hidden;
+    white-space: nowrap;
+}
+#stage.maximized {
+    --stage-height: 100vh;
+}
+
+#stage .msg {
+    line-height: 1;
+    font-size: calc(var(--stage-height) - 16vh);
+    color: lime;
+}

@@ -1,0 +1,29 @@
+:root {
+    --site-bg: black;
+    --panel-bg: #19181b;
+    --text-field-bg: #4b4d56;
+
+    --stage-height: 90vh;
+}
+
+@media only screen and (max-width: 1024px) {
+    :root {
+        --stage-height: 80vh;
+    }
+}
+
+html {
+    background-color: var(--site-bg);
+    overflow: hidden;
+}
+
+body {
+    margin: 0;
+}
+
+.btn {
+    border: none;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+}
