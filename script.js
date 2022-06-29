@@ -46,13 +46,15 @@ document.querySelector('#stage').addEventListener('touchend', () => {
 });
 
 function maximizeStage() {
-    document.querySelector('#panel').classList.add('hide');
+    document.querySelector('#panel').classList.remove('slide-in');
+    document.querySelector('#panel').classList.add('slide-out');
     document.querySelector('#stage').classList.add('maximized');
     document.querySelector('#show-panel').classList.add('show');
 }
 
 function unmaximizeStage() {
-    document.querySelector('#panel').classList.remove('hide');
+    document.querySelector('#panel').classList.remove('slide-out');
+    document.querySelector('#panel').classList.add('slide-in');
     document.querySelector('#stage').classList.remove('maximized');
     document.querySelector('#show-panel').classList.remove('show');
 }
