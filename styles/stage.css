@@ -1,10 +1,29 @@
+@keyframes ticker {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-200%);
+    }
+}
+
 #stage {
     height: var(--stage-height);
     overflow: hidden;
     white-space: nowrap;
+    padding-left: 100%;
 }
 #stage.maximized {
     --stage-height: 100vh;
+}
+
+
+#stage .ticker {
+    display: inline-block;
+    animation-name: ticker;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
 }
 
 #stage .msg {

@@ -3,15 +3,19 @@ function setMsg(msg_text) {
 }
 
 function playMsg() { 
-    let msg = document.querySelector('#stage .msg');
-    msg.style.transition = null;
-    msg.style.marginLeft = '1920px';
-    let width = msg.offsetWidth;
-    let time = width / 384;
-    msg.style.transition = `margin-left ${time}s`;
-    msg.style.transitionTimingFunction = 'linear';
-    msg.style.marginLeft = `-${ width }px`;
-    setTimeout(playMsg, time * 1000);
+    let ticker = document.querySelector('#stage .ticker');
+    let play_pause = document.querySelector('#play-pause i');
+    ticker.style.animationPlayState = 'running';
+    play_pause.classList.remove('fa-play');
+    play_pause.classList.add('fa-pause');
+}
+
+function pauseMsg() { 
+    let ticker = document.querySelector('#stage .ticker');
+    let play_pause = document.querySelector('#play-pause i');
+    ticker.style.animationPlayState = 'paused';
+    play_pause.classList.add('fa-play');
+    play_pause.classList.remove('fa-pause');
 }
 
 /*
@@ -29,6 +33,17 @@ document.querySelector('#delete-btn').addEventListener('click', () => {
     let field = document.querySelector('#msg-form .text-field');
     field.value = '';
     field.focus();
+});
+
+/*
+    Play/Pause Control
+*/
+
+document.querySelector('#play-pause').addEventListener('click', e => { 
+    if (e.target.classList.contains('fa-play'))
+        playMsg();
+    else
+        pauseMsg();
 });
 
 /*
