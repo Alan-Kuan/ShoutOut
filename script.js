@@ -18,6 +18,20 @@ function pauseMsg() {
     play_pause.classList.remove('fa-pause');
 }
 
+function hide(selector) {
+    let items = document.querySelectorAll(selector);
+    items.forEach(item => {
+        item.style.visibility = 'hidden';
+    });
+}
+
+function show(selector) {
+    let items = document.querySelectorAll(selector);
+    items.forEach(item => {
+        item.style.visibility = 'visible';
+    });
+}
+
 /*
     Input
 */
@@ -26,6 +40,7 @@ document.querySelector('#msg-form').addEventListener('submit', e => {
     e.preventDefault();
     let msg_text = document.querySelector('#msg-form .text-field').value;
     setMsg(msg_text);
+    show('.control-btn');
     playMsg();
 });
 
@@ -36,7 +51,7 @@ document.querySelector('#delete-btn').addEventListener('click', () => {
 });
 
 /*
-    Play/Pause Control
+    Play/Pause/Stop Control
 */
 
 document.querySelector('#play-pause').addEventListener('click', e => { 
@@ -44,6 +59,11 @@ document.querySelector('#play-pause').addEventListener('click', e => {
         playMsg();
     else
         pauseMsg();
+});
+
+document.querySelector('#stop').addEventListener('click', () => { 
+    hide('.control-btn');
+    setMsg('');
 });
 
 /*
