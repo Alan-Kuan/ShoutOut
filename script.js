@@ -10,7 +10,7 @@ function startMsg(msg_text) {
     ticker.style.animation = null;
 
     setMsg(msg_text);
-    show('.control-btn');
+    fadeIn('.control-btn');
     playMsg();
 }
 
@@ -34,6 +34,7 @@ function hide(selector) {
     let items = document.querySelectorAll(selector);
     items.forEach(item => {
         item.style.visibility = 'hidden';
+        item.classList.remove('fade-in');
     });
 }
 
@@ -41,6 +42,24 @@ function show(selector) {
     let items = document.querySelectorAll(selector);
     items.forEach(item => {
         item.style.visibility = 'visible';
+        item.classList.remove('fade-out');
+    });
+}
+
+function fadeOut(selector) {
+    let items = document.querySelectorAll(selector);
+    items.forEach(item => {
+        item.classList.add('fade-out');
+        item.classList.remove('fade-in');
+    });
+}
+
+function fadeIn(selector) {
+    let items = document.querySelectorAll(selector);
+    items.forEach(item => {
+        item.style.visibility = 'visible';
+        item.classList.add('fade-in');
+        item.classList.remove('fade-out');
     });
 }
 
@@ -72,7 +91,7 @@ document.querySelector('#play-pause').addEventListener('click', e => {
 });
 
 document.querySelector('#stop').addEventListener('click', () => { 
-    hide('.control-btn');
+    fadeOut('.control-btn');
     setMsg('');
 });
 
