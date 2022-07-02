@@ -4,6 +4,7 @@
     --text-field-bg: #4b4d56;
 
     --stage-height: 90vh;
+    --panel-btn-size: 4rem;
 }
 
 @media only screen and (max-width: 1024px) {
@@ -26,4 +27,8 @@ body {
     background-color: transparent;
     color: white;
     cursor: pointer;
+}
+
+.spacer {
+    flex-grow: 1;
 }

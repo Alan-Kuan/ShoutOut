@@ -1,10 +1,10 @@
 #msg-form {
     display: flex;
-    width: 90%;
+    width: 70%;
 }
 #msg-form .text-field-container {
     position: relative;
-    width: 60%;
+    flex-grow: 1;
 }
 #msg-form .text-field-container .text-field {
     width: 100%;
