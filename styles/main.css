@@ -2,6 +2,7 @@
     --site-bg: black;
     --panel-bg: #19181b;
     --text-field-bg: #4b4d56;
+    --theme-color: lime;
 
     --stage-height: 90vh;
     --panel-height: calc(100vh - var(--stage-height));

@@ -1,6 +1,7 @@
 #panel-container {
     position: absolute;
     bottom: 0;
+    z-index: 5;
     width: 100%;
     height: var(--panel-height);
 }
@@ -24,7 +25,7 @@
 }
 .panel-btn:hover {
     color: var(--panel-bg);
-    background-color: lime;
+    background-color: var(--theme-color);
 }
 
 .control-btn {

@@ -29,5 +29,5 @@
 #stage .msg {
     line-height: 1;
     font-size: calc(var(--stage-height) - 16vh);
-    color: lime;
+    color: var(--theme-color);
 }

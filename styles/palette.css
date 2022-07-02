@@ -1,13 +1,13 @@
 #palette-container {
     position: relative;
     height: 100%;
+    z-index: -1;
 }
 
 #palette {
     position: absolute;
     bottom: var(--panel-height);
     right: calc(-1 * var(--panel-btn-size) - 1.5rem);
-    z-index: -1;
     width: 21rem;
     height: 9rem;
     padding: 0.5rem;
@@ -28,8 +28,11 @@
     border-radius: 0.5rem;
     cursor: pointer;
 }
+.color:hover:not(.selected) {
+    box-shadow: 0 0 10px white;
+}
 .color.selected {
-    outline: 3px solid black;
+    box-shadow: 0 0 10px var(--theme-color);
 }
 .color.selected::after {
     content: '✓';
