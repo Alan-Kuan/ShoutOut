@@ -2,6 +2,18 @@ function setMsg(msg_text) {
     document.querySelector('#stage .msg').textContent = msg_text;
 }
 
+function startMsg(msg_text) {
+    // reset animation
+    let ticker = document.querySelector('#stage .ticker');
+    ticker.style.animation = 'none';
+    ticker.offsetHeight;  // this triggers reflow
+    ticker.style.animation = null;
+
+    setMsg(msg_text);
+    show('.control-btn');
+    playMsg();
+}
+
 function playMsg() { 
     let ticker = document.querySelector('#stage .ticker');
     let play_pause = document.querySelector('#play-pause i');
@@ -39,9 +51,7 @@ function show(selector) {
 document.querySelector('#msg-form').addEventListener('submit', e => { 
     e.preventDefault();
     let msg_text = document.querySelector('#msg-form .text-field').value;
-    setMsg(msg_text);
-    show('.control-btn');
-    playMsg();
+    startMsg(msg_text);
 });
 
 document.querySelector('#delete-btn').addEventListener('click', () => {
