@@ -30,17 +30,20 @@
     100% { opacity: 0; }
 }
 
-#panel {
+#panel-container {
     position: absolute;
     bottom: 0;
     width: 100%;
+    height: var(--panel-height);
+}
+
+#panel {
+    height: 100%;
     display: flex;
     align-items: center;
-    height: calc(100vh - var(--stage-height));
     padding: 0 5%;
     box-sizing: border-box;
     background-color: var(--panel-bg);
-    z-index: 1;
 }
 
 .panel-btn {
@@ -60,13 +63,13 @@
     visibility: hidden;
 }
 
-#show-panel {
+#show-panel-btn {
     position: fixed;
     right: 1rem;
     bottom: 1rem;
     opacity: 0;
     transition: 0.3s;
 }
-#show-panel.show {
+#show-panel-btn.show {
     opacity: 1;
 }

@@ -16,7 +16,7 @@ function startMsg(msg_text) {
 
 function playMsg() { 
     let ticker = document.querySelector('#stage .ticker');
-    let play_pause = document.querySelector('#play-pause i');
+    let play_pause = document.querySelector('#play-pause-btn i');
     ticker.style.animationPlayState = 'running';
     play_pause.classList.remove('fa-play');
     play_pause.classList.add('fa-pause');
@@ -24,7 +24,7 @@ function playMsg() {
 
 function pauseMsg() { 
     let ticker = document.querySelector('#stage .ticker');
-    let play_pause = document.querySelector('#play-pause i');
+    let play_pause = document.querySelector('#play-pause-btn i');
     ticker.style.animationPlayState = 'paused';
     play_pause.classList.add('fa-play');
     play_pause.classList.remove('fa-pause');
@@ -63,6 +63,22 @@ function fadeIn(selector) {
     });
 }
 
+function slideIn(selector) {
+    let items = document.querySelectorAll(selector);
+    items.forEach(item => {
+        item.classList.add('slide-in');
+        item.classList.remove('slide-out');
+    });
+}
+
+function slideOut(selector) {
+    let items = document.querySelectorAll(selector);
+    items.forEach(item => {
+        item.classList.add('slide-out');
+        item.classList.remove('slide-in');
+    });
+}
+
 /*
     Input
 */
@@ -83,27 +99,42 @@ document.querySelector('#delete-btn').addEventListener('click', () => {
     Play/Pause/Stop Control
 */
 
-document.querySelector('#play-pause').addEventListener('click', e => { 
+document.querySelector('#play-pause-btn').addEventListener('click', e => { 
     if (e.target.classList.contains('fa-play'))
         playMsg();
     else
         pauseMsg();
 });
 
-document.querySelector('#stop').addEventListener('click', () => { 
+document.querySelector('#stop-btn').addEventListener('click', () => { 
     fadeOut('.control-btn');
     setMsg('');
+});
+
+/*
+    Color Picker
+*/
+
+document.querySelector('#palette-btn').addEventListener('click', () => { 
+    let palette = document.querySelector('#palette');
+    if (palette.classList.contains('slide-in')) {
+        palette.classList.add('slide-out');
+        palette.classList.remove('slide-in');
+    } else {
+        palette.classList.add('slide-in');
+        palette.classList.remove('slide-out');
+    }
 });
 
 /*
     Maximize and unmaximize the stage.
 */
 
-document.querySelector('#close').addEventListener('click', () => {  
+document.querySelector('#close-btn').addEventListener('click', () => {  
     maximizeStage();
 });
 
-document.querySelector('#show-panel').addEventListener('click', () => { 
+document.querySelector('#show-panel-btn').addEventListener('click', () => { 
     unmaximizeStage();
 });
 
@@ -112,15 +143,15 @@ document.querySelector('#stage').addEventListener('touchend', () => {
 });
 
 function maximizeStage() {
-    document.querySelector('#panel').classList.remove('slide-in');
-    document.querySelector('#panel').classList.add('slide-out');
+    slideOut('#panel-container');
+    if (document.querySelector('#palette').classList.contains('slide-in'))
+        slideOut('#palette');
     document.querySelector('#stage').classList.add('maximized');
-    document.querySelector('#show-panel').classList.add('show');
+    document.querySelector('#show-panel-btn').classList.add('show');
 }
 
 function unmaximizeStage() {
-    document.querySelector('#panel').classList.remove('slide-out');
-    document.querySelector('#panel').classList.add('slide-in');
+    slideIn('#panel-container');
     document.querySelector('#stage').classList.remove('maximized');
-    document.querySelector('#show-panel').classList.remove('show');
+    document.querySelector('#show-panel-btn').classList.remove('show');
 }
