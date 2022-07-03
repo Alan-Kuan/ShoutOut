@@ -40,12 +40,12 @@
     font-size: 2.5rem;
     transition: 0.3s;
 }
-.panel-btn:hover {
-    color: var(--panel-bg) !important;
-    background-color: var(--theme-color);
+.panel-btn:not(.selected):hover {
+    color: var(--theme-color) !important;
 }
 .panel-btn.selected {
-    color: var(--theme-color);
+    color: var(--panel-bg);
+    background-color: var(--theme-color);
 }
 
 .control-btn {
