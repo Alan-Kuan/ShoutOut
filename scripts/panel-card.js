@@ -23,4 +23,9 @@ function closeAllCards() {
             return;
         slideOut(card)
     });
+
+    document.querySelectorAll('.panel-btn').forEach(btn => {
+        if (btn.classList.contains('selected'))
+            btn.classList.remove('selected');
+    });
 }
