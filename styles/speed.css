@@ -3,14 +3,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: white;
 }
 
 #speed-display {
     margin-bottom: 1rem;
-    color: white;
     font-weight: bold;
-}
-
-#speed {
-    width: 70%;
 }
