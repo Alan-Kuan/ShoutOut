@@ -6,9 +6,13 @@ function toggleCard(selector) {
         slideIn(card);
 
         document.querySelectorAll('.panel-card').forEach(other => {
-            if (other.isEqualNode(card) || !other.classList.contains('slide-in'))
-                return;
-            slideOut(other)
+            if (!other.isEqualNode(card) && other.classList.contains('slide-in'))
+                slideOut(other)
+        });
+
+        document.querySelectorAll('.panel-btn').forEach(other => {
+            if (other.classList.contains('selected'))
+                other.classList.remove('selected');
         });
     }
 }

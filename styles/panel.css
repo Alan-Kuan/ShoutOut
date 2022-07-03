@@ -41,8 +41,11 @@
     transition: 0.3s;
 }
 .panel-btn:hover {
-    color: var(--panel-bg);
+    color: var(--panel-bg) !important;
     background-color: var(--theme-color);
+}
+.panel-btn.selected {
+    color: var(--theme-color);
 }
 
 .control-btn {

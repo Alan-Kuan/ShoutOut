@@ -2,8 +2,13 @@
     Speed Controler
 */
 
-document.querySelector('#speed-btn').addEventListener('click', () => { 
+document.querySelector('#speed-btn').addEventListener('click', e => { 
     toggleCard('#speed-card');
+    let btn = e.currentTarget;
+    if (btn.classList.contains('selected'))
+        btn.classList.remove('selected');
+    else
+        btn.classList.add('selected');
 });
 
 document.querySelector('#speed').addEventListener('input', e => { 

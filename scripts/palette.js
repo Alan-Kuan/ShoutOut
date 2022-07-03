@@ -11,8 +11,13 @@ function selectBlock(block) {
     block.classList.add('selected');
 }
 
-document.querySelector('#palette-btn').addEventListener('click', () => { 
+document.querySelector('#palette-btn').addEventListener('click', e => { 
     toggleCard('#palette');
+    let btn = e.currentTarget;
+    if (btn.classList.contains('selected'))
+        btn.classList.remove('selected');
+    else
+        btn.classList.add('selected');
 });
 
 document.querySelectorAll('.color').forEach(item => {
