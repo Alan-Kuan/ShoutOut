@@ -3,7 +3,7 @@
         transform: translateX(0%);
     }
     100% {
-        transform: translateX(-200%);
+        transform: translateX(-100%);
     }
 }
 
@@ -11,7 +11,6 @@
     height: var(--stage-height);
     overflow: hidden;
     white-space: nowrap;
-    padding-left: 100%;
 }
 #stage.maximized {
     --stage-height: 100vh;
@@ -20,8 +19,9 @@
 
 #stage .ticker {
     display: inline-block;
+    padding-left: 100%;
     animation-name: ticker;
-    animation-duration: 10s;
+    animation-duration: var(--msg-duration);
     animation-iteration-count: infinite;
     animation-timing-function: linear;
 }
@@ -30,6 +30,5 @@
     line-height: 1;
     font-size: calc(var(--stage-height) - 16vh);
     color: var(--theme-color);
-    font-family: 'Noto Sans TC', sans-serif;
     user-select: none;
 }

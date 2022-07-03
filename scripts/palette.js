@@ -5,21 +5,14 @@
 function selectBlock(block) {
     document.querySelectorAll('.color').forEach(block => {
         if (!block.classList.contains('selected'))
-        return;
+            return;
         block.classList.remove('selected');
     });
     block.classList.add('selected');
 }
 
 document.querySelector('#palette-btn').addEventListener('click', () => { 
-    let palette = document.querySelector('#palette');
-    if (palette.classList.contains('slide-in')) {
-        palette.classList.add('slide-out');
-        palette.classList.remove('slide-in');
-    } else {
-        palette.classList.add('slide-in');
-        palette.classList.remove('slide-out');
-    }
+    toggleCard('#palette');
 });
 
 document.querySelectorAll('.color').forEach(item => {

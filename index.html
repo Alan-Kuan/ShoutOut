@@ -8,6 +8,7 @@
         <link href="styles/animate.css" rel="stylesheet" media="screen" type="text/css" />
         <link href="styles/stage.css" rel="stylesheet" media="screen" type="text/css" />
         <link href="styles/panel.css" rel="stylesheet" media="screen" type="text/css" />
+        <link href="styles/speed.css" rel="stylesheet" media="screen" type="text/css" />
         <link href="styles/palette.css" rel="stylesheet" media="screen" type="text/css" />
         <link href="styles/msg-form.css" rel="stylesheet" media="screen" type="text/css" />
         <script src="https://kit.fontawesome.com/87f4504e58.js" crossorigin="anonymous"></script>
@@ -37,14 +38,28 @@
                 <div class="spacer"></div>
 
                 <button id="play-pause-btn" class="btn panel-btn control-btn">
-                    <i class="fa-solid fa-play"></i>
+                    <i class="fa-solid fa-pause"></i>
                 </button>
                 <button id="stop-btn" class="btn panel-btn control-btn">
                     <i class="fa-solid fa-stop"></i>
                 </button>
 
-                <div id="palette-container">
-                    <div id="palette">
+                <div class="panel-card-container">
+                    <div id="speed-card" class="panel-card">
+                        <div id="speed-display">
+                            <span class="value">192</span>
+                            <span>px/s</span>
+                        </div>
+                        <input id="speed" type="range" min="5" max="500" value="192" />
+                    </div>
+                </div>
+
+                <button id="speed-btn" class="btn panel-btn">
+                    <i class="fa-solid fa-gauge"></i>
+                </button>
+
+                <div class="panel-card-container">
+                    <div id="palette" class="panel-card">
                         <div class="color color-1"></div>
                         <div class="color color-2"></div>
                         <div class="color color-3"></div>
@@ -79,6 +94,8 @@
         <script src="scripts/control.js"></script>
         <script src="scripts/message.js"></script>
         <script src="scripts/msg-form.js"></script>
+        <script src="scripts/panel-card.js"></script>
+        <script src="scripts/speed.js"></script>
         <script src="scripts/palette.js"></script>
         <script src="scripts/stage.js"></script>
     </body>

@@ -15,6 +15,23 @@
     background-color: var(--panel-bg);
 }
 
+.panel-card-container {
+    position: relative;
+    height: 100%;
+    z-index: -1;
+}
+
+.panel-card {
+    position: absolute;
+    bottom: var(--panel-height);
+    right: calc(-1 * var(--panel-btn-size) - 1.5rem);
+    width: 21rem;
+    height: 9rem;
+    padding: 0.5rem;
+    background-color: var(--text-field-bg);
+    transform: translateY(100%);
+}
+
 .panel-btn {
     width: var(--panel-btn-size);
     height: var(--panel-btn-size);

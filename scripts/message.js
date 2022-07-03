@@ -3,15 +3,18 @@ function setMsg(msg_text) {
 }
 
 function startMsg(msg_text) {
+    setMsg(msg_text);
+    fadeIn('.control-btn');
+
     // reset animation
     let ticker = document.querySelector('#stage .ticker');
     ticker.style.animation = 'none';
-    ticker.offsetHeight;  // this triggers reflow
+    let width = ticker.offsetWidth;  // we need the width, and this can trigger reflow coincidentally
     ticker.style.animation = null;
 
-    setMsg(msg_text);
-    fadeIn('.control-btn');
-    playMsg();
+    let speed = document.querySelector('#speed').value;
+    let msg_duration = width / speed;
+    document.querySelector(':root').style.setProperty('--msg-duration', msg_duration + 's');
 }
 
 function playMsg() { 

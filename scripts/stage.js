@@ -16,8 +16,7 @@ document.querySelector('#stage').addEventListener('touchend', () => {
 
 function maximizeStage() {
     slideOut('#panel-container');
-    if (document.querySelector('#palette').classList.contains('slide-in'))
-        slideOut('#palette');
+    closeAllCards();
     document.querySelector('#stage').classList.add('maximized');
     document.querySelector('#show-panel-btn').classList.add('show');
 }
