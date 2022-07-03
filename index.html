@@ -11,6 +11,7 @@
         <link href="styles/speed.css" rel="stylesheet" media="screen" type="text/css" />
         <link href="styles/palette.css" rel="stylesheet" media="screen" type="text/css" />
         <link href="styles/msg-form.css" rel="stylesheet" media="screen" type="text/css" />
+        <link href="styles/info-card.css" rel="stylesheet" media="screen" type="text/css" />
         <script src="https://kit.fontawesome.com/87f4504e58.js" crossorigin="anonymous"></script>
     </head>
     <body>
@@ -58,7 +59,7 @@
                     </div>
                 </div>
 
-                <button id="speed-btn" class="btn panel-btn">
+                <button id="speed-btn" class="btn panel-btn panel-card-btn">
                     <i class="fa-solid fa-gauge"></i>
                 </button>
 
@@ -80,8 +81,31 @@
                     </div>
                 </div>
 
-                <button id="palette-btn" class="btn panel-btn">
+                <button id="palette-btn" class="btn panel-btn panel-card-btn">
                     <i class="fa-solid fa-palette"></i>
+                </button>
+
+                <div class="panel-card-container">
+                    <div id="info-card" class="panel-card">
+                        <div>
+                            <i class="fa-solid fa-feather-pointed"></i>
+                            <span>Alan Kuan</span>
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-envelope"></i>
+                            <a id="email" target="_blank"></a>
+                        </div>
+                        <div>
+                            <i class="fa-brands fa-github"></i>
+                            <a href="https://github.com/Alan-Kuan/ShoutOut" target="_blank">
+                                Alan-Kuan/ShoutOut
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <button id="info-btn" class="btn panel-btn panel-card-btn">
+                    <i class="fa-solid fa-circle-info"></i>
                 </button>
 
                 <button id="close-btn" class="btn panel-btn">
@@ -97,12 +121,13 @@
         </div>
 
         <script src="scripts/animate.js"></script>
+        <script src="scripts/stage.js"></script>
         <script src="scripts/control.js"></script>
         <script src="scripts/message.js"></script>
         <script src="scripts/msg-form.js"></script>
         <script src="scripts/panel-card.js"></script>
         <script src="scripts/speed.js"></script>
         <script src="scripts/palette.js"></script>
-        <script src="scripts/stage.js"></script>
+        <script src="scripts/info-card.js"></script>
     </body>
 </html>

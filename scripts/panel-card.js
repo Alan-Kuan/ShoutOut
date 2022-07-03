@@ -1,5 +1,4 @@
-function toggleCard(selector) {
-    let card = document.querySelector(selector);
+function toggleCard(card) {
     if (card.classList.contains('slide-in')) {
         slideOut(card);
     } else {
@@ -29,3 +28,15 @@ function closeAllCards() {
             btn.classList.remove('selected');
     });
 }
+
+document.querySelectorAll('.panel-card-btn').forEach(btn => {
+    btn.addEventListener('click', () => { 
+        let card = btn.previousElementSibling.firstElementChild;
+        toggleCard(card);
+
+        if (btn.classList.contains('selected'))
+            btn.classList.remove('selected');
+        else
+            btn.classList.add('selected');
+    });
+});

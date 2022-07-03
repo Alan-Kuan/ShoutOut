@@ -28,6 +28,7 @@
     width: 21rem;
     height: 9rem;
     padding: 0.5rem;
+    box-sizing: border-box;
     background-color: var(--text-field-bg);
     transform: translateY(100%);
 }
