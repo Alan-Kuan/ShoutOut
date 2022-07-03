@@ -31,4 +31,5 @@
     font-size: calc(var(--stage-height) - 16vh);
     color: var(--theme-color);
     font-family: 'Noto Sans TC', sans-serif;
+    user-select: none;
 }
