@@ -1,10 +1,14 @@
 #msg-form {
+    flex-shrink: 1;  /* as a flex item to its parent */
     display: flex;
+    align-items: center;
     width: 70%;
 }
 #msg-form .text-field-container {
     position: relative;
-    flex-grow: 1;
+    flex-shrink: 1;  /* as a flex item to its parent */
+    display: flex;
+    align-items: center;
 }
 #msg-form .text-field-container .text-field {
     width: 100%;

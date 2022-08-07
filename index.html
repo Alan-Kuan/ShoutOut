@@ -19,6 +19,7 @@
         <link href="styles/palette.css" rel="stylesheet" media="screen" type="text/css" />
         <link href="styles/msg-form.css" rel="stylesheet" media="screen" type="text/css" />
         <link href="styles/info-card.css" rel="stylesheet" media="screen" type="text/css" />
+        <link href="styles/rwd.css" rel="stylesheet" media="screen" type="text/css" />
 
         <script src="https://kit.fontawesome.com/87f4504e58.js" crossorigin="anonymous"></script>
     </head>
@@ -31,6 +32,7 @@
 
         <div id="panel-container">
             <div id="panel">
+                <!-- Input -->
                 <form id="msg-form">
                     <div class="text-field-container">
                         <input class="text-field" type="text" />
@@ -46,15 +48,25 @@
 
                 <div class="spacer"></div>
 
-                <button id="play-pause-btn" class="btn panel-btn control-btn">
-                    <i class="fa-solid fa-pause"></i>
-                </button>
-                <button id="stop-btn" class="btn panel-btn control-btn">
-                    <i class="fa-solid fa-stop"></i>
-                </button>
+                <!-- Control -->
+                <div class="panel-btn-container ctl-btn-container">
+                    <button class="play-pause-btn btn panel-btn control-btn">
+                        <i class="fa-solid fa-pause"></i>
+                    </button>
+                </div>
+                <div class="panel-btn-container ctl-btn-container">
+                    <button class="stop-btn btn panel-btn control-btn">
+                        <i class="fa-solid fa-stop"></i>
+                    </button>
+                </div>
 
+                <!-- Speed -->
                 <div class="panel-card-container">
                     <div id="speed-card" class="panel-card">
+                        <button class="btn panel-card-close">
+                            <i class="fa-solid fa-close"></i>
+                        </button>
+
                         <div id="speed-display">
                             <span class="value">500</span>
                             <span>px/s</span>
@@ -67,34 +79,50 @@
                     </div>
                 </div>
 
-                <button id="speed-btn" class="btn panel-btn panel-card-btn">
-                    <i class="fa-solid fa-gauge"></i>
-                </button>
+                <div class="panel-btn-container fn-btn-container">
+                    <button class="speed-btn btn panel-btn panel-card-btn" data-ref="speed">
+                        <i class="fa-solid fa-gauge"></i>
+                    </button>
+                </div>
 
+                <!-- Palette -->
                 <div class="panel-card-container">
-                    <div id="palette" class="panel-card">
-                        <div class="color color-1"></div>
-                        <div class="color color-2"></div>
-                        <div class="color color-3"></div>
-                        <div class="color color-4 selected"></div>
-                        <div class="color color-5"></div>
-                        <div class="color color-6"></div>
-                        <div class="color color-7"></div>
-                        <div class="color color-8"></div>
-                        <div class="color color-9"></div>
-                        <div class="color color-free">
-                            <input type="color" id="color-picker" />
-                            <i class="fa-solid fa-droplet"></i>
+                    <div id="palette-card" class="panel-card">
+                        <button class="btn panel-card-close">
+                            <i class="fa-solid fa-close"></i>
+                        </button>
+
+                        <div class="palette">
+                            <div class="color color-1"></div>
+                            <div class="color color-2"></div>
+                            <div class="color color-3"></div>
+                            <div class="color color-4 selected"></div>
+                            <div class="color color-5"></div>
+                            <div class="color color-6"></div>
+                            <div class="color color-7"></div>
+                            <div class="color color-8"></div>
+                            <div class="color color-9"></div>
+                            <div class="color color-free">
+                                <input type="color" id="color-picker" />
+                                <i class="fa-solid fa-droplet"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <button id="palette-btn" class="btn panel-btn panel-card-btn">
-                    <i class="fa-solid fa-palette"></i>
-                </button>
+                <div class="panel-btn-container fn-btn-container">
+                    <button class="palette-btn btn panel-btn panel-card-btn" data-ref="palette">
+                        <i class="fa-solid fa-palette"></i>
+                    </button>
+                </div>
 
+                <!-- Info -->
                 <div class="panel-card-container">
                     <div id="info-card" class="panel-card">
+                        <button class="btn panel-card-close">
+                            <i class="fa-solid fa-close"></i>
+                        </button>
+
                         <div>
                             <i class="fa-solid fa-feather-pointed"></i>
                             <span>Alan Kuan</span>
@@ -112,13 +140,45 @@
                     </div>
                 </div>
 
-                <button id="info-btn" class="btn panel-btn panel-card-btn">
-                    <i class="fa-solid fa-circle-info"></i>
-                </button>
+                <div class="panel-btn-container fn-btn-container">
+                    <button class="info-btn btn panel-btn panel-card-btn" data-ref="info">
+                        <i class="fa-solid fa-circle-info"></i>
+                    </button>
+                </div>
 
-                <button id="close-btn" class="btn panel-btn">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
+                <!-- More -->
+                <div class="panel-card-container">
+                    <div id="more-card" class="panel-card">
+                        <button class="play-pause-btn btn panel-btn control-btn" disabled>
+                            <i class="fa-solid fa-pause"></i>
+                        </button>
+                        <button class="stop-btn btn panel-btn control-btn" disabled>
+                            <i class="fa-solid fa-stop"></i>
+                        </button>
+                        <button class="speed-btn btn panel-btn panel-card-btn" data-ref="speed">
+                            <i class="fa-solid fa-gauge"></i>
+                        </button>
+                        <button class="palette-btn btn panel-btn panel-card-btn" data-ref="palette">
+                            <i class="fa-solid fa-palette"></i>
+                        </button>
+                        <button class="info-btn btn panel-btn panel-card-btn" data-ref="info">
+                            <i class="fa-solid fa-circle-info"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="more-btn-container" class="panel-btn-container">
+                    <button class="btn panel-btn panel-card-btn" data-ref="more">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+
+                <!-- Close -->
+                <div class="panel-btn-container">
+                    <button id="close-btn" class="btn panel-btn">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
             </div>
         </div>
 

@@ -2,7 +2,7 @@
     Speed Controler
 */
 
-document.querySelector('#speed').addEventListener('input', e => { 
+document.querySelector('#speed').addEventListener('input', e => {
     let speed = e.target.value;
     document.querySelector('#speed-display .value').textContent = speed;
 

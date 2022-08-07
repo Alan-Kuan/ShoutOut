@@ -10,7 +10,7 @@
     height: 100%;
     display: flex;
     align-items: center;
-    padding: 0 5%;
+    padding: 0 2%;
     box-sizing: border-box;
     background-color: var(--panel-bg);
 }
@@ -24,7 +24,7 @@
 .panel-card {
     position: absolute;
     bottom: var(--panel-height);
-    right: calc(-1 * var(--panel-btn-size) - 1.5rem);
+    right: calc(-1 * var(--panel-btn-size));
     width: 21rem;
     height: 9rem;
     padding: 0.5rem;
@@ -33,11 +33,17 @@
     transform: translateY(100%);
 }
 
+.panel-card-close {
+    display: none;
+}
+
+.panel-btn-container {
+    flex: 1;
+}
 .panel-btn {
     width: var(--panel-btn-size);
     height: var(--panel-btn-size);
     border-radius: 50%;
-    margin-left: 1.5rem;
     font-size: 2.5rem;
     transition: 0.3s;
 }
@@ -51,6 +57,12 @@
 
 .control-btn {
     visibility: hidden;
+}
+.control-btn:disabled {
+    color: gray;
+}
+.control-btn:disabled:hover {
+    color: gray !important;
 }
 
 #show-panel-container {

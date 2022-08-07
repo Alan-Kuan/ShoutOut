@@ -1,0 +1,73 @@
+#more-btn-container {
+    display: none;
+}
+#more-card {
+    display: none;
+    width: auto;
+    height: auto;
+}
+.more-card-col {
+    width: 20rem;
+}
+
+/* width <= 1024px */
+@media only screen and (max-width: 1024px) {
+    .fn-btn-container,
+    #more-card .control-btn {
+        display: none;
+    }
+
+    #more-card,
+    #more-btn-container {
+        display: flex;
+    }
+
+    .panel-card-close {
+        display: block;
+        position: absolute;
+        top: 0.5rem;
+        right: 1rem;
+        font-size: 1.5rem;
+    }
+    .panel-card-close:hover {
+        color: var(--theme-color);
+    }
+
+    #palette-card .palette {
+        width: calc(4 * var(--color-size) + 5rem);
+    }
+    #palette-card .color-8, .color-9 {
+        display: none;
+    }
+}
+
+/* width <= 768px */
+@media only screen and (max-width: 768px) {
+    .ctl-btn-container {
+        display: none;
+    }
+
+    #more-card .control-btn {
+        display: block;
+        visibility: visible;
+    }
+
+    #msg-form .text-field-container .text-field {
+        height: 3rem;
+        font-size: 1rem;
+    }
+    #msg-form .text-field-container #delete-btn {
+        font-size: 1.5rem;
+    }
+
+    :root {
+        --panel-height: 4.5rem;
+        --panel-btn-size: 2.5rem;
+    }
+    .panel-btn {
+        font-size: 1.5rem;
+    }
+    .panel-card {
+        font-size: 1rem !important;
+    }
+}

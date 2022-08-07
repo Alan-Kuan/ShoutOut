@@ -15,15 +15,15 @@ function unmaximizeStage() {
     document.querySelector('#show-panel-btn').classList.remove('show');
 }
 
-document.querySelector('#close-btn').addEventListener('click', () => {  
+document.querySelector('#close-btn').addEventListener('click', () => {
     maximizeStage();
 });
 
-document.querySelector('#show-panel-btn').addEventListener('click', () => { 
+document.querySelector('#show-panel-btn').addEventListener('click', () => {
     unmaximizeStage();
 });
 
-document.querySelector('#stage').addEventListener('touchend', () => { 
+document.querySelector('#stage').addEventListener('touchend', () => {
     unmaximizeStage();
 });
 

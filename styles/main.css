@@ -10,18 +10,12 @@
     --theme-color: lime;
     --color-free: gray;
 
-    --stage-height: 90vh;
-    --panel-height: calc(100vh - var(--stage-height));
+    --stage-height: calc(100vh - var(--panel-height));
+    --panel-height: 6rem;
     --panel-btn-size: 4rem;
     --color-size: 3rem;
 
     --msg-duration: 10s;
-}
-
-@media only screen and (max-width: 1024px) {
-    :root {
-        --stage-height: 80vh;
-    }
 }
 
 html {

@@ -30,13 +30,24 @@ function closeAllCards() {
 }
 
 document.querySelectorAll('.panel-card-btn').forEach(btn => {
-    btn.addEventListener('click', () => { 
-        let card = btn.previousElementSibling.firstElementChild;
+    btn.addEventListener('click', () => {
+        let ref = btn.dataset.ref;
+        let card = document.querySelector(`#${ ref }-card`);
         toggleCard(card);
 
-        if (btn.classList.contains('selected'))
-            btn.classList.remove('selected');
-        else
-            btn.classList.add('selected');
+        document.querySelectorAll(`.${ ref }-btn`).forEach(target_btn => {
+            if (target_btn.classList.contains('selected'))
+                target_btn.classList.remove('selected');
+            else
+                target_btn.classList.add('selected');
+        });
+    });
+});
+
+// Only appears when the display width is no more than 1024 px
+document.querySelectorAll('.panel-card-close').forEach(btn => {
+    btn.addEventListener('click', () => {
+        let card = btn.parentElement;
+        toggleCard(card);
     });
 });

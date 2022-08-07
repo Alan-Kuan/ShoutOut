@@ -4,7 +4,10 @@ function setMsg(msg_text) {
 
 function startMsg(msg_text) {
     setMsg(msg_text);
-    fadeIn('.control-btn');
+    fadeIn('.panel-btn-container .control-btn');
+    document.querySelectorAll('#more-card .control-btn').forEach(btn => {
+        btn.disabled = false;
+    });
 
     // reset animation
     let ticker = document.querySelector('#stage .ticker');
@@ -17,18 +20,22 @@ function startMsg(msg_text) {
     document.querySelector(':root').style.setProperty('--msg-duration', msg_duration + 's');
 }
 
-function playMsg() { 
+function playMsg() {
     let ticker = document.querySelector('#stage .ticker');
-    let play_pause = document.querySelector('#play-pause-btn i');
     ticker.style.animationPlayState = 'running';
-    play_pause.classList.remove('fa-play');
-    play_pause.classList.add('fa-pause');
+
+    document.querySelectorAll('.play-pause-btn i').forEach(icon => {
+        icon.classList.remove('fa-play');
+        icon.classList.add('fa-pause');
+    });
 }
 
-function pauseMsg() { 
+function pauseMsg() {
     let ticker = document.querySelector('#stage .ticker');
-    let play_pause = document.querySelector('#play-pause-btn i');
     ticker.style.animationPlayState = 'paused';
-    play_pause.classList.add('fa-play');
-    play_pause.classList.remove('fa-pause');
+
+    document.querySelectorAll('.play-pause-btn i').forEach(icon => {
+        icon.classList.remove('fa-pause');
+        icon.classList.add('fa-play');
+    });
 }

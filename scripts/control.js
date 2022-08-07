@@ -2,14 +2,23 @@
     Play/Pause/Stop Control
 */
 
-document.querySelector('#play-pause-btn').addEventListener('click', e => { 
-    if (e.target.classList.contains('fa-play'))
-        playMsg();
-    else
-        pauseMsg();
+document.querySelectorAll('.play-pause-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        let icon = btn.querySelector('i');
+        if (icon.classList.contains('fa-play')) {
+            playMsg();
+        } else {
+            pauseMsg();
+        }
+    });
 });
 
-document.querySelector('#stop-btn').addEventListener('click', () => { 
-    fadeOut('.control-btn');
-    setMsg('');
+document.querySelectorAll('.stop-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        fadeOut('.panel-btn-container .control-btn');
+        document.querySelectorAll('#more-card .control-btn').forEach(btn => {
+            btn.disabled = true;
+        });
+        setMsg('');
+    });
 });
