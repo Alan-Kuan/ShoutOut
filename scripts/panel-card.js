@@ -1,3 +1,10 @@
+function unselectCurrentSelectedBtn() {
+    document.querySelectorAll('.panel-btn').forEach(btn => {
+        if (btn.classList.contains('selected'))
+            btn.classList.remove('selected');
+    });
+}
+
 function toggleCard(card) {
     if (card.classList.contains('slide-in')) {
         slideOut(card);
@@ -9,10 +16,7 @@ function toggleCard(card) {
                 slideOut(other)
         });
 
-        document.querySelectorAll('.panel-btn').forEach(other => {
-            if (other.classList.contains('selected'))
-                other.classList.remove('selected');
-        });
+        unselectCurrentSelectedBtn();
     }
 }
 
@@ -23,10 +27,7 @@ function closeAllCards() {
         slideOut(card)
     });
 
-    document.querySelectorAll('.panel-btn').forEach(btn => {
-        if (btn.classList.contains('selected'))
-            btn.classList.remove('selected');
-    });
+    unselectCurrentSelectedBtn();
 }
 
 document.querySelectorAll('.panel-card-btn').forEach(btn => {
@@ -49,5 +50,6 @@ document.querySelectorAll('.panel-card-close').forEach(btn => {
     btn.addEventListener('click', () => {
         let card = btn.parentElement;
         toggleCard(card);
+        unselectCurrentSelectedBtn();
     });
 });
