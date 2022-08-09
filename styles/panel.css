@@ -64,21 +64,3 @@
 .control-btn:disabled:hover {
     color: gray !important;
 }
-
-#show-panel-container {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: var(--panel-height);
-}
-
-#show-panel-btn {
-    position: fixed;
-    right: 1rem;
-    bottom: 1rem;
-    opacity: 0;
-    transition: 0.3s;
-}
-#show-panel-container:hover #show-panel-btn.show {
-    opacity: 1;
-}

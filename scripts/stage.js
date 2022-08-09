@@ -3,27 +3,27 @@
 */
 
 function maximizeStage() {
+    let stage = document.querySelector('#stage');
+    if (stage.classList.contains('maximized'))
+        return;
     slideOut('#panel-container');
     closeAllCards();
-    document.querySelector('#stage').classList.add('maximized');
-    document.querySelector('#show-panel-btn').classList.add('show');
+    stage.classList.add('maximized');
 }
 
 function unmaximizeStage() {
+    let stage = document.querySelector('#stage');
+    if (!stage.classList.contains('maximized'))
+        return;
     slideIn('#panel-container');
-    document.querySelector('#stage').classList.remove('maximized');
-    document.querySelector('#show-panel-btn').classList.remove('show');
+    stage.classList.remove('maximized');
 }
 
 document.querySelector('#close-btn').addEventListener('click', () => {
     maximizeStage();
 });
 
-document.querySelector('#show-panel-btn').addEventListener('click', () => {
-    unmaximizeStage();
-});
-
-document.querySelector('#stage').addEventListener('touchend', () => {
+document.querySelector('#stage').addEventListener('click', () => {
     unmaximizeStage();
 });
 
@@ -42,7 +42,7 @@ document.querySelector('#stage').addEventListener('mousemove', e => {
     }
 
     // set timer
-    const timer = setTimeout(() => { 
+    const timer = setTimeout(() => {
         stage.setAttribute('timer', '');
         stage.style.cursor = 'none';
     }, 3500);
