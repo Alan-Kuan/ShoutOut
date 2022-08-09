@@ -23,18 +23,32 @@ function leaveFullscreen() {
         alert('Fullscreen feature is not supported on this browser');
 }
 
+function onFullScreenChange() {
+    let icons = document.querySelectorAll('.fullscreen-btn i');
+    // entered fullscreen
+    if (document.fullscreenElement || document.webkitFullscreenElement) {
+        icons.forEach(icon => {
+            icon.classList.remove('fa-up-right-and-down-left-from-center');
+            icon.classList.add('fa-down-left-and-up-right-to-center');
+        });
+    // left fullscreen
+    } else {
+        icons.forEach(icon => {
+            icon.classList.remove('fa-down-left-and-up-right-to-center');
+            icon.classList.add('fa-up-right-and-down-left-from-center');
+        });
+    }
+}
+
+document.addEventListener('fullscreenchange', onFullScreenChange);
+document.addEventListener('webkitfullscreenchange', onFullScreenChange);
+
 document.querySelectorAll('.fullscreen-btn').forEach(btn => {
     btn.addEventListener('click', e => {
-        let target_btn = e.target;
-        if (target_btn.classList.contains('fa-up-right-and-down-left-from-center')) {
+        if (e.target.classList.contains('fa-up-right-and-down-left-from-center'))
             enterFullscreen();
-            target_btn.classList.remove('fa-up-right-and-down-left-from-center');
-            target_btn.classList.add('fa-down-left-and-up-right-to-center');
-        } else {
+        else
             leaveFullscreen();
-            target_btn.classList.remove('fa-down-left-and-up-right-to-center');
-            target_btn.classList.add('fa-up-right-and-down-left-from-center');
-        }
     });
 });
 
