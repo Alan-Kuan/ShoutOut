@@ -6,6 +6,15 @@
     height: var(--panel-height);
 }
 
+#panel-container .cover {
+    position: absolute;
+    bottom: calc(-1 * var(--panel-height));
+    width: 100%;
+    height: var(--panel-height);
+    background-color: var(--site-bg);
+    z-index: 10;
+}
+
 #panel {
     height: 100%;
     display: flex;
