@@ -1,4 +1,44 @@
 /*
+    Fullscreen Control
+*/
+
+function enterFullscreen() {
+    let ele = document.documentElement;
+    if (ele.requestFullscreen)
+        ele.requestFullscreen();
+    // Safari
+    else if (ele.webkitRequestFullscreen)
+        ele.webkitRequestFullscreen();
+    else
+        alert('Fullscreen feature is not supported on this browser');
+}
+
+function leaveFullscreen() {
+    if (document.exitFullscreen)
+        document.exitFullscreen();
+    // Safari
+    else if (document.webkitExitFullscreen)
+        document.webkitExitFullscreen();
+    else
+        alert('Fullscreen feature is not supported on this browser');
+}
+
+document.querySelectorAll('.fullscreen-btn').forEach(btn => {
+    btn.addEventListener('click', e => {
+        let target_btn = e.target;
+        if (target_btn.classList.contains('fa-up-right-and-down-left-from-center')) {
+            enterFullscreen();
+            target_btn.classList.remove('fa-up-right-and-down-left-from-center');
+            target_btn.classList.add('fa-down-left-and-up-right-to-center');
+        } else {
+            leaveFullscreen();
+            target_btn.classList.remove('fa-down-left-and-up-right-to-center');
+            target_btn.classList.add('fa-up-right-and-down-left-from-center');
+        }
+    });
+});
+
+/*
     Maximize and unmaximize the stage.
 */
 
