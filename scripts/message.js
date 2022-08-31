@@ -15,6 +15,12 @@ function startMsg(msg_text) {
     let width = ticker.offsetWidth;  // we need the width, and this can trigger reflow coincidentally
     ticker.style.animation = null;
 
+    // reset play/pause button
+    document.querySelectorAll('.play-pause-btn i').forEach(icon => {
+        icon.classList.remove('fa-play');
+        icon.classList.add('fa-pause');
+    });
+
     let speed = document.querySelector('#speed').value;
     let msg_duration = width / speed;
     document.querySelector(':root').style.setProperty('--msg-duration', msg_duration + 's');
